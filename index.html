@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222; /* Set background color to a darker gray */
+        }
+
+        #profile-container {
+            position: relative;
+        }
+
+        #profile-picture {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px dotted #fff; /* Initial border style */
+            animation: blink 3s infinite; /* Add initial blinking animation */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #profile-picture img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: fillGreen 0.7s forwards 2s; /* Add animation to fill the border green */
+        }
+
+        #sync-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        #sync-message {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            top: 10px; /* Adjusted top position to be at the top center */
+            font-size: 18px;
+            color: #fff;
+            opacity: 0;
+            animation: showAndHide 3s forwards 5s; /* Add animation for message appearance and disappearance */
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                border: 2px dotted #fff; /* Set border style at start and end */
+            }
+            50% {
+                border: 2px dotted transparent; /* Set border style in the middle (invisible) */
+            }
+        }
+
+        @keyframes fillGreen {
+            0% {
+                clip-path: inset(100% 0 0 0); /* Start with the border hidden */
+            }
+            100% {
+                clip-path: inset(0 0 0 0); /* End with the full border visible */
+            }
+        }
+
+        @keyframes showAndHide {
+            0%, 100% {
+                opacity: 1; /* Start and end with full opacity */
+            }
+            90%, 100% {
+                opacity: 0; /* Fade out in the last 10% of the animation */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="profile-container">
+    <div id="profile-picture">
+        <img src="https://i.imgur.com/HtgBy4K.jpg" alt="Profile Picture">
+    </div>
+    <img id="sync-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn8rqGy6I8H_vnrJoss7qbc-2y4PmHGZmjVmcqA4ZhNYLLcMrLTeIbJwaOe7Be7iLVW3Y&usqp=CAU" alt="Sync Icon">
+    <div id="sync-message">Synced to anons computer pc pod</div>
+</div>
+
+</body>
+</html>
